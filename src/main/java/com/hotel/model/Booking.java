@@ -27,15 +27,15 @@ public class Booking {
 	
 	@NotNull(message = "noOfGuest is compulsory")
 	@Column(name = "noofguest")
-	private int noOfGuest;
+	private int noofguest;
 	
 	@NotNull(message = "checkinDate is compulsory")
 	@Column(name = "checkindate")
-	private Date checkinDate;
+	private Date checkindate;
 	
 	@NotNull(message = "checkoutDate is compulsory")
 	@Column(name = "checkoutdate")
-	private Date checkoutDate;
+	private Date checkoutdate;
 	
 	@OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Rooms> rooms = new ArrayList<>();
@@ -57,27 +57,27 @@ public class Booking {
 	}
 
 	public int getNoOfGuest() {
-		return noOfGuest;
+		return noofguest;
 	}
 
-	public void setNoOfGuest(int noOfGuest) {
-		this.noOfGuest = noOfGuest;
+	public void setNoOfGuest(int noofguest) {
+		this.noofguest = noofguest;
 	}
 
 	public Date getCheckinDate() {
-		return checkinDate;
+		return checkindate;
 	}
 
-	public void setCheckinDate(Date checkinDate) {
-		this.checkinDate = checkinDate;
+	public void setCheckinDate(Date checkindate) {
+		this.checkindate = checkindate;
 	}
 
 	public Date getCheckoutDate() {
-		return checkoutDate;
+		return checkoutdate;
 	}
 
-	public void setCheckoutDate(Date checkoutDate) {
-		this.checkoutDate = checkoutDate;
+	public void setCheckoutDate(Date checkoutdate) {
+		this.checkoutdate = checkoutdate;
 	}
 
 	public List<Rooms> getComments() {
@@ -90,8 +90,8 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [bookingid=" + bookingid + ", userid=" + userid + ", noOfGuest=" + noOfGuest + ", checkinDate="
-				+ checkinDate + ", checkoutDate=" + checkoutDate + ", rooms=" + rooms + "]";
+		return "Booking [bookingid=" + bookingid + ", userid=" + userid + ", noOfGuest=" + noofguest + ", checkindate="
+				+ checkindate + ", checkoutdate=" + checkoutdate + ", rooms=" + rooms + "]";
 	}
 
 	

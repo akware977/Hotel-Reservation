@@ -1,22 +1,21 @@
 package com.hotel.controller;
 
-import javax.validation.Valid;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hotel.model.Booking;
+import com.hotel.model.Rooms;
 import com.hotel.model.User;
 import com.hotel.service.MyUserDetailsService;
 import com.hotel.service.RoleService;
+import com.hotel.service.RoomService;
 
 @Controller
 public class UserController {
@@ -29,28 +28,23 @@ public class UserController {
 	@Autowired
 	RoleService roleService;
 	
-	@PreAuthorize("hasRole('ROLE_SUPERADMIN')")
-	@RequestMapping(value = "/adduser", method=RequestMethod.POST)
-	public ModelAndView  addUser(@Valid User user, BindingResult bindingResult, ModelMap modelMap, Authentication authentication) {		
+	@Autowired
+	RoomService roomService; 
+	
+	@RequestMapping(value = "/user_index", method=RequestMethod.GET)
+	public ModelAndView  loginPage() {
 		ModelAndView modelAndView = new ModelAndView();
+		User user = new User();
+		Booking booking = new Booking();
+		List<Rooms> roomslist = roomService.getAllRooms();
 		
-		//check for validation
-		if(bindingResult.hasErrors()) {
-			modelAndView.addObject("message", "Please correct the error in form");
-			modelMap.addAttribute("bindingResult", bindingResult);
-			logger.debug("Please correct the error in form");
-		} else {
-			//String username = authentication.getName();
-				
-			//DB Operation
-			userdetailService.addUser(user);
-			//adminlogService.addLog(user.getUserid(), user.getUsername() +" user Added by " + username);
-			logger.info(user.getUsername() + " => Admin Added user.");
-		}		
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("booking", booking);
+		modelAndView.addObject("roomslist",roomslist);
+		modelAndView.setViewName("/user/index");
 		
-		modelAndView.setViewName("redirect:"+"/user"); //  /admin/news.jsp
 		return  modelAndView;
 	}
-
+	
 	
 }

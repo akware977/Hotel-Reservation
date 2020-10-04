@@ -1,6 +1,6 @@
 package com.hotel.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ public class RoomType {
 	
 	@NotNull(message = "lastCapacityUpdate is compulsory")
 	@Column(name = "lastCapacityUpdate")
-	private Date lastCapacityUpdate;
+	private Timestamp lastCapacityUpdate;
 
 	public int getRoomtypeno() {
 		return roomtypeno;
@@ -53,11 +53,11 @@ public class RoomType {
 		this.capacity = capacity;
 	}
 
-	public Date getLastCapacityUpdate() {
+	public Timestamp getLastCapacityUpdate() {
 		return lastCapacityUpdate;
 	}
 
-	public void setLastCapacityUpdate(Date lastCapacityUpdate) {
+	public void setLastCapacityUpdate(Timestamp lastCapacityUpdate) {
 		this.lastCapacityUpdate = lastCapacityUpdate;
 	}
 

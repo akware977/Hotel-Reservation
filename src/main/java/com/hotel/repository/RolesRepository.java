@@ -9,4 +9,6 @@ import com.hotel.model.Roles;
 public interface RolesRepository extends JpaRepository<Roles, Integer> {
 
 	public Roles findByrolename(String rolename);
+	
+	
 }

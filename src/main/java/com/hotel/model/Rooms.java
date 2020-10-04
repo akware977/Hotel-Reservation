@@ -1,6 +1,6 @@
 package com.hotel.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,8 +28,8 @@ public class Rooms {
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "rooms_roomtype",
-	joinColumns = @JoinColumn (name = "roomno"),
-	inverseJoinColumns = @JoinColumn (name ="roomtypeno"))
+	joinColumns = @JoinColumn (name = "roomtypeno"),
+	inverseJoinColumns = @JoinColumn (name ="roomno"))
 	private RoomType roomType;
 	
 	

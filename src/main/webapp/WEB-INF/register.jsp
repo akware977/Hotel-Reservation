@@ -59,7 +59,7 @@
            Email <input type="email" class="form-control" name="email" id="email"  placeholder="email" required="required">
         </div>
         <div class="form-group">
-           Mobile No <input type="text" class="form-control" name="mobileno" id="mobileno"  placeholder="mobile no" required="required">
+           Mobile No <input type="text" class="form-control" name="mobile" id="mobile"  placeholder="mobile no" required="required">
         </div>
         <div class="form-group">
            <button type="submit" class="btn btn-primary btn-block"> Register </button>
